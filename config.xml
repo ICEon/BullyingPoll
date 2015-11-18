@@ -5,7 +5,7 @@
      id    = "com.phonegap.Esqueleto"  
      version  = "1.0.0">  
 	 
-   <name> Nombre </name>  
+   <name> Encuesta Bullying </name>  
    
    <description>  
      Primer Ejemplo de eventos
@@ -29,10 +29,12 @@
    <!-- Core plugins -->  
 
    <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />  
-   <gap:plugin name="org.apache.cordova.vibration" />  
+   <gap:plugin name="org.apache.cordova.vibration" /> 
+   <gap:plugin name="org.apache.cordova.vibration" version="0.3.0" />
+  
 
    <!-- Third party plugins -->  
-   
+   <gap:plugin name="com.brodysoft.sqliteplugin" version="1.0.6" />
 
    
    <!-- Define los iconos de la aplicacion para cada plataforma -->  

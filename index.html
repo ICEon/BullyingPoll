@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
   <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css" />
   <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" /> 
-        
+  <link rel="stylesheet" type="text/css" href="css/ionicons.min.css">        
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">        
         
 
 
@@ -26,16 +27,62 @@
  <!-- Principal -->
  <div data-role="page" id="principal" >   
   <div data-role="header">
-    <h1>Encabezado</h1>
+    <h1>Encuesta sobre Bullying</h1>
+    <a href="#" data-icon="grid" class="ui-btn-right" id="cuantas">0</a>
   </div>
 
   <div data-role="main" class="ui-content">
-    <a href="#" class="ui-btn ui-btn-corner-all ui-icon-alert ui-btn-icon-right">click</a>
+   <div align="center">
+       <i class="ion-man icono-grande sexo-h"></i>
+       <i class="ion-woman icono-grande sexo-m"></i>
+   </div>
+   <div align="center">
+    <div class="edad">15</div>
+    <div class="edad">16</div>
+    <div class="edad">17</div>
+    <div class="edad">18</div>
+    <div class="edad">+18</div>
+   </div>
+  </div>
+  
+  <div id="pregunta" align="center">
+   ¿Sabes que es el bullying?
+   <div id="uno">
+    <div class="respuesta1 R1s">Si</div>
+    <div class="respuesta1 R1n">No</div>
+   </div>
   </div>
 
-  <div data-role="footer">
-    <h1>Pie</h1>
+  <div id="pregunta" align="center">
+   ¿Alguna vez has hecho bullying en la escuela?
+   <div id="dos">
+    <div class="respuesta2 R2s">Si</div>
+    <div class="respuesta2 R2n">No</div>
+   </div>
   </div>
+
+
+  <div id="pregunta" align="center">
+   ¿Alguna vez has sido victima de bullying en la escuela?
+   <div id="tres">
+    <div class="respuesta3 R3s">Si</div>
+    <div class="respuesta3 R3n">No</div>
+   </div>
+  </div>
+
+  <div id="pregunta4" class="oculta" align="center">
+   ¿Lo has denunciado a las autoridades escolares o a algún maestro?
+   <div id="cuatro">
+    <div class="respuesta4 R4s">Si</div>
+    <div class="respuesta4 R4n">No</div>
+   </div>
+  </div>
+ <br>
+ <div align="center">
+  <span id="guardar">
+   Guardar
+  </span>
+ </div>
  </div>  
  <!-- Principal -->
 
