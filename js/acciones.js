@@ -108,21 +108,33 @@ document.addEventListener("deviceready", onDeviceReady, false);
  $('#resultados').on('tap', function(){
 //	   $("#opciones").popup("close");	 	 
 var $totalhombres;
-var $total = parseInt($('#cuantas').html());
+var $totalmujeres;
+var $ptotalmujeres;
 var $ptotalhombres;
+
+var $total = parseInt($('#cuantas').html());
+
 
 	  db.transaction(function(tx) {
         tx.executeSql("select count(folioEncuesta) as totalhombres from encuestas where sexo = 'H';", [], function(tx, res) {
-
-
           $totalhombres = res.rows.item(0).totalhombres;
           $('#totalHombres').html($totalhombres);
           $ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
-          alert ("ptotalh " + $ptotalhombres);
           $('#PtotalHombres').html($ptotalhombres+'%');
           $('#datosHombres').width($ptotalhombres + '%');
         });
       });	 
+	  
+	  	  db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalmujeres from encuestas where sexo = 'M';", [], function(tx, res) {
+          $totalmujeres = res.rows.item(0).totalmujeres;
+          $('#totalMujeres').html($totalmujeres);
+          $ptotalmujeres = Math.round((parseInt($totalmujeres)*100)/$total);
+          $('#PtotalMujeres').html($ptotalmujeres+'%');
+          $('#datosMujeres').width($ptotalmujeres + '%');
+        });
+      });	 
+	  
 $('#total').html($total);
 
 
