@@ -220,7 +220,7 @@ var $total = parseInt($('#cuantas').html());
           $ptotalmujeres = Math.round((parseInt($totalmujeres)*100)/$total);
           $('#PtotalMujeresDenunciado').html($ptotalmujeres+'%');
           $('#datosMujeresDenunciado').width($ptotalmujeres + '%');
-		  $('#totalDenunciado').html(parseInt($('#totalDEnunciado').html()) + $totalmujeres);
+		  $('#totalDenunciado').html(parseInt($('#totalDenunciado').html()) + $totalmujeres);
         });
       });	 
 	  
