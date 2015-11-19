@@ -201,8 +201,8 @@ $('#continuar').on('tap', function (){
 
  
 $nombre = fecha.getDate() + "-" + (fecha.getMonth() +1) + "-" + fecha.getFullYear() + "-" + fecha.getHours() + "-" + fecha.getMinutes() + "-" + fecha.getSeconds();
-				
-   fileSystem.root.getDirectory("Datos_EncuestaBullying", {create: true}, gotDir);
+				alert ($nombre);
+   fileSystem.root.getDirectory("Bullying", {create: true}, gotDir);
 }
 
 function gotDir(dirEntry) {
@@ -242,7 +242,7 @@ alert("folio: " +	res.rows.item(i).folioEncuesta);
 	$contenido = $contenido + res.rows.item(i).folioEncuesta + "," + res.rows.item(i).sexo + "," + res.rows.item(i).edad + "," +res.rows.item(i).conoce + "," + res.rows.item(i).hace + "," + res.rows.item(i).bulleado + "," +res.rows.item(i).denunciado  +"\n"; 
 
     }  
-
+alert ("fuera");
         });
       });
 		
