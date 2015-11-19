@@ -8,6 +8,71 @@ var denunciado = -1;
 var $contenido = ""
 var $nombre=""
 var db;
+
+//*************************
+
+
+            function gotFS(fileSystem) {
+alert ("here");
+				 var fecha = new Date();
+
+ 
+$nombre = fecha.getDate() + "-" + (fecha.getMonth() +1) + "-" + fecha.getFullYear() + "-" + fecha.getHours() + "-" + fecha.getMinutes() + "-" + fecha.getSeconds();
+				alert ($nombre);
+   fileSystem.root.getDirectory("Bullying", {create: true}, gotDir);
+}
+
+function gotDir(dirEntry) {
+    dirEntry.getFile($nombre+".csv", {create: true, exclusive: true}, gotFileEntry);
+
+
+            }
+
+            function gotFileEntry(fileEntry) {
+                fileEntry.createWriter(gotFileWriter, fail);
+            }
+
+            function gotFileWriter(writer) {
+                writer.onwrite = function(evt) {				
+					
+                    console.log("Correcto");
+                };
+
+                writer.write($contenido);
+				alert ("Archivo Guardado");
+                writer.abort();
+
+            }
+
+            function fail(error) {
+                console.log("error : "+error.code);
+            }
+function Guardar()
+{
+	$contenido = "Folio Encuesta, Sexo, Edad, Conoce, Hace, Bulleado, Denunciado" + "\n";
+alert ($contenido);
+	db.transaction(function(tx) {
+        tx.executeSql("select * from encuestas;", [], function(tx, res) {
+alert ("cuantas: " +	res.rows.length);
+    for (i = 0; i < res.rows.length; i++) { 
+alert("folio: " +	res.rows.item(i).folioEncuesta);
+	$contenido = $contenido + res.rows.item(i).folioEncuesta + "," + res.rows.item(i).sexo + "," + res.rows.item(i).edad + "," +res.rows.item(i).conoce + "," + res.rows.item(i).hace + "," + res.rows.item(i).bulleado + "," +res.rows.item(i).denunciado  +"\n"; 
+
+    }  
+alert ("fuera");
+        });
+      });
+		
+		
+
+
+  
+window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+
+}
+
+//*******************
+
 function conectar_base()
  {
 
@@ -200,69 +265,6 @@ $('#continuar').on('tap', function (){
 
 
 
-//*************************
-
-
-            function gotFS(fileSystem) {
-alert ("here");
-				 var fecha = new Date();
-
- 
-$nombre = fecha.getDate() + "-" + (fecha.getMonth() +1) + "-" + fecha.getFullYear() + "-" + fecha.getHours() + "-" + fecha.getMinutes() + "-" + fecha.getSeconds();
-				alert ($nombre);
-   fileSystem.root.getDirectory("Bullying", {create: true}, gotDir);
-}
-
-function gotDir(dirEntry) {
-    dirEntry.getFile($nombre+".csv", {create: true, exclusive: true}, gotFileEntry);
-
-
-            }
-
-            function gotFileEntry(fileEntry) {
-                fileEntry.createWriter(gotFileWriter, fail);
-            }
-
-            function gotFileWriter(writer) {
-                writer.onwrite = function(evt) {				
-					
-                    console.log("Correcto");
-                };
-
-                writer.write($contenido);
-				alert ("Archivo Guardado");
-                writer.abort();
-
-            }
-
-            function fail(error) {
-                console.log("error : "+error.code);
-            }
-function Guardar()
-{
-	$contenido = "Folio Encuesta, Sexo, Edad, Conoce, Hace, Bulleado, Denunciado" + "\n";
-alert ($contenido);
-	db.transaction(function(tx) {
-        tx.executeSql("select * from encuestas;", [], function(tx, res) {
-alert ("cuantas: " +	res.rows.length);
-    for (i = 0; i < res.rows.length; i++) { 
-alert("folio: " +	res.rows.item(i).folioEncuesta);
-	$contenido = $contenido + res.rows.item(i).folioEncuesta + "," + res.rows.item(i).sexo + "," + res.rows.item(i).edad + "," +res.rows.item(i).conoce + "," + res.rows.item(i).hace + "," + res.rows.item(i).bulleado + "," +res.rows.item(i).denunciado  +"\n"; 
-
-    }  
-alert ("fuera");
-        });
-      });
-		
-		
-
-
-  
-window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
-
-}
-
-//*******************
 
 
  }
