@@ -107,17 +107,24 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
  $('#resultados').on('tap', function(){
 //	   $("#opciones").popup("close");	 	 
+var $totalhombres;
+var $total = parseInt($('#cuantas').html());
+var $ptotalhombres;
 
 	  db.transaction(function(tx) {
         tx.executeSql("select count(folioEncuesta) as totalhombres from encuestas where sexo = 'H';", [], function(tx, res) {
 
 
-          var $totalhombres = res.rows.item(0).totalhombres;
+          $totalhombres = parseInt(res.rows.item(0).totalhombres);
 
         });
       });	 
-
+$('#total').html($total);
 $('#totalHombres').html($totalhombres);
+$ptotalhombres = Math.round(($totalhombres*100)/$total);
+$('#PtotalHombres').html($ptotalhombres);
+$('#datosHombres').width($ptotalhombres + '%');
+
 
 	 
 	$(':mobile-pagecontainer').pagecontainer('change', '#pagestadistica'); 
