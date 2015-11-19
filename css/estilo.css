@@ -40,7 +40,8 @@
 	color: #F737ED;	
 	border-color: #F737ED;
  }
-#titulo
+#titulo,
+#titulo2
  {
 	font-size: 130%;
 	font-weight:bold; 

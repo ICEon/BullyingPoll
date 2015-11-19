@@ -106,6 +106,17 @@ document.addEventListener("deviceready", onDeviceReady, false);
  conectar_base();
 
  $('#resultados').on('tap', function(){
+	 var $total = parseInt ($('#cuantas').html());
+	 
+db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalhombres from encuestas where sexo = 'H';", [], function(tx, res) {
+
+
+          var $totalhombres = res.rows.item(0).totalhombres;
+		  alert ($totalhombres);
+        });
+      });	 
+	 
 	$(':mobile-pagecontainer').pagecontainer('change', '#pagestadistica'); 
  });
  $('#cerrarOpciones').on('tap', function(){
