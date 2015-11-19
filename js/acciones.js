@@ -32,8 +32,16 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
  $('#datos').on('tap', function(){
+	 
+if ( parseInt($('#cuantas').html()) > 0)
+ {
 	 alert('guardar');
 	Guardar(); 
+ }
+ else
+  {
+	  alert ("no hay estadistica que guardar o mostrar");
+  }
  });
 	$(".icono-grande").on("tap",function(){
 		if($(this).hasClass("sexo-h"))
@@ -196,7 +204,7 @@ $('#continuar').on('tap', function (){
 
 
             function gotFS(fileSystem) {
-
+alert ("here");
 				 var fecha = new Date();
 
  
