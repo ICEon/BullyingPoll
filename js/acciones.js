@@ -127,7 +127,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
    $('#guardar').on('tap', function(){
 
 db.transaction(function(tx) {
-              tx.executeSql("INSERT INTO encuestas (sexo, edad, conoce, hace, bulleado, denunciado) VALUES (?,?,?,?,?,?)", [sexo, edad, conoce,hace, bulleado, denunciado], function(tx, res) {alert("agregado");
+              tx.executeSql("INSERT INTO encuestas (sexo, edad, conoce, hace, bulleado, denunciado) VALUES (?,?,?,?,?,?)", [sexo, edad, conoce,hace, bulleado, denunciado], function(tx, res) {$.mobile.changePage( "#confirmacion", { role: "dialog" } );;
 			  			db.transaction(function(tx) {
         tx.executeSql("select count(folioEncuesta) as cuantas from encuestas;", [], function(tx, res) {
 
