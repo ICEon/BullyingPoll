@@ -32,6 +32,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
  $('#datos').on('tap', function(){
+	 alert('guardar');
 	Guardar(); 
  });
 	$(".icono-grande").on("tap",function(){
@@ -232,11 +233,12 @@ function gotDir(dirEntry) {
 function Guardar()
 {
 	$contenido = "Folio Encuesta, Sexo, Edad, Conoce, Hace, Bulleado, Denunciado" + "\n";
-
+alert ($contenido);
 	db.transaction(function(tx) {
         tx.executeSql("select * from encuestas;", [], function(tx, res) {
+alert ("cuantas: " +	res.rows.length);
     for (i = 1; i <= res.rows.length; i++) { 
-	
+alert("folio: " +	res.rows.item(i).folioEncuesta);
 	$contenido = $contenido + res.rows.item(i).folioEncuesta + "," + res.rows.item(i).sexo + "," + res.rows.item(i).edad + "," +res.rows.item(i).conoce + "," + res.rows.item(i).hace + "," + res.rows.item(i).bulleado + "," +res.rows.item(i).denunciado  +"\n"; 
 
     }  
