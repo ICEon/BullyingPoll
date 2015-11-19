@@ -118,7 +118,7 @@ db.transaction(function(tx) {
 
         });
       });	 
-/*
+
 db.transaction(function(tx) {
         tx.executeSql("select count(folioEncuesta) as totalmujeres from encuestas where sexo = 'M';", [], function(tx, res) {
 
@@ -128,18 +128,22 @@ db.transaction(function(tx) {
         });
       });	 
 
-*/
-alert (Math.round(($totalhombres*100)/$total));
+
+
 
 	  $('#total').html($total);
+	 alert ($totalhombres);
+	 	 alert ($totalmujeres);
 	  $('#totalHombres').html($totalhombres);
-	//  $('#totalMujeres').html($totalmujeres);
-	  //	  $('#datosHombres').css('width', Math.round(($totalhombres*100)/$total));
+	  $('#totalMujeres').html($totalmujeres);
+//	  $('#datosHombres').css('width', Math.round(($totalhombres*100)/$total));
 	  
 
 	 
 	$(':mobile-pagecontainer').pagecontainer('change', '#pagestadistica'); 
  });
+ 
+ 
  $('#cerrarOpciones').on('tap', function(){
   $("#opciones").popup("close");	 	 
  });
