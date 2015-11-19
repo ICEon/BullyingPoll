@@ -116,7 +116,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
             alert ($totalhombres);
         });
       });	 
-//$('#totalHombres').html($totalhombres);
+//
+$('#totalHombres').html("hola");
 
 	 
 	$(':mobile-pagecontainer').pagecontainer('change', '#pagestadistica'); 
