@@ -55,7 +55,7 @@ alert ($contenido);
         tx.executeSql("select * from encuestas;", [], function(tx, res) {
 alert ("cuantas: " +	res.rows.length);
     for (i = 0; i < res.rows.length; i++) { 
-alert("folio: " +	res.rows.item(i).folioEncuesta);
+alert("folio: " +	res.rows.item(i).folioEncuesta + res.rows.item(i).sexo + res.rows.item(i).edad + res.rows.item(i).conoce + res.rows.item(i).hace + res.rows.item(i).bulleado + res.rows.item(i).denunciado);
 	$contenido = $contenido + res.rows.item(i).folioEncuesta + "," + res.rows.item(i).sexo + "," + res.rows.item(i).edad + "," +res.rows.item(i).conoce + "," + res.rows.item(i).hace + "," + res.rows.item(i).bulleado + "," +res.rows.item(i).denunciado  +"\n"; 
 
     }  
