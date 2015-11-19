@@ -116,16 +116,15 @@ var $ptotalhombres;
 
 
           $totalhombres = res.rows.item(0).totalhombres;
-alert ("totalh " + $totalhombres);
+          $('#totalHombres').html($totalhombres);
+          $ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
+          alert ("ptotalh " + $ptotalhombres);
+          $('#PtotalHombres').html($ptotalhombres+'%');
+          $('#datosHombres').width($ptotalhombres + '%');
         });
       });	 
 $('#total').html($total);
-$('#totalHombres').html($totalhombres);
 
-$ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
-alert ("ptotalh " + $ptotalhombres);
-$('#PtotalHombres').html($ptotalhombres);
-$('#datosHombres').width($ptotalhombres + '%');
 
 
 	 
