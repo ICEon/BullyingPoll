@@ -2,17 +2,17 @@
  <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->  
  <widget xmlns   = "http://www.w3.org/ns/widgets"  
      xmlns:gap = "http://phonegap.com/ns/1.0"  
-     id    = "com.phonegap.Esqueleto"  
+     id    = "com.phonegap.Bullying"  
      version  = "1.0.0">  
 	 
    <name> Encuesta Bullying </name>  
    
    <description>  
-     Primer Ejemplo de eventos
+     Encuesta sobre Bullying
    </description>  
    
    <author href="https://build.phonegap.com" email="micorreo@gmail.com">  
-       Nombre
+       Francisco Jose Couto Pelaez
    </author>  
    
    <!-- Personaliza la aplicacion y plataforma  -->  
@@ -26,7 +26,7 @@
    <preference name="fullscreen"         value="true" />      
    <preference name="android-installLocation"  value="auto" />  
    <preference name="SplashScreen" value="splash"/>
-   <preference name="SplashScreenDelay" value="2000"/>
+   <preference name="SplashScreenDelay" value="1500"/>
 
    <!-- Plugins -->  
    <!-- Core plugins -->  
