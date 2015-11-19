@@ -30,8 +30,7 @@
 
    <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />  
    <gap:plugin name="org.apache.cordova.vibration" /> 
-   <gap:plugin name="org.apache.cordova.vibration" version="0.3.0" />
-  
+ 
 
    <!-- Third party plugins -->  
    <gap:plugin name="com.brodysoft.sqliteplugin" version="1.0.6" />
