@@ -222,12 +222,20 @@ $('#total').html($total);
 
 
 	 
-	$(':mobile-pagecontainer').pagecontainer('change', '#pagestadistica'); 
+
 	
 	$('#totalConocen').html( parseInt($('#totalHombresConocen').html()) + parseInt($('#totalMujeresConocen').html()) );
 $('#totalHacen').html(parseInt($('#totalHombresHacen').html())+parseInt($('#totalMujeresHacen').html()));
 $('#totalSufren').html(parseInt($('#totalHombresSufren').html())+parseInt($('#totalMujeresSufren').html()));
 $('#totalDenunciado').html(parseInt($('#totalHombresDenunciado').html())+parseInt($('#totalMujeresDenunciado').html()));
+
+	$(':mobile-pagecontainer').pagecontainer('change', '#pagestadistica',{
+            transition: 'slide',
+            changeHash: true,
+            reverse: false,
+            showLoadMsg: true,
+            reload: false
+			}); 
 
  });
  
