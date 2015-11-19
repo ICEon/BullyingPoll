@@ -218,14 +218,17 @@ var $total = parseInt($('#cuantas').html());
 	  
 	  
 $('#total').html($total);
-$('#totalConocen').html(parseInt($('#totalHombresConocen').html())+parseInt($('#totalMujeresConocen').html()));
-$('#totalHacen').html(parseInt($('#totalHombresHacen').html())+parseInt($('#totalMujeresHacen').html()));
-$('#totalSufren').html(parseInt($('#totalHombresSufren').html())+parseInt($('#totalMujeresSufren').html()));
-$('#totalDenunciado').html(parseInt($('#totalHombresDenunciado').html())+parseInt($('#totalMujeresDenunciado').html()));
+
 
 
 	 
 	$(':mobile-pagecontainer').pagecontainer('change', '#pagestadistica'); 
+	location.reload();
+	$('#totalConocen').html( parseInt($('#totalHombresConocen').html()) + parseInt($('#totalMujeresConocen').html()) );
+$('#totalHacen').html(parseInt($('#totalHombresHacen').html())+parseInt($('#totalMujeresHacen').html()));
+$('#totalSufren').html(parseInt($('#totalHombresSufren').html())+parseInt($('#totalMujeresSufren').html()));
+$('#totalDenunciado').html(parseInt($('#totalHombresDenunciado').html())+parseInt($('#totalMujeresDenunciado').html()));
+
  });
  
  
