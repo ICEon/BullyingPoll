@@ -5,6 +5,8 @@ var conoce = -1;
 var hace = -1;
 var bulleado = -1;
 var denunciado = -1;
+var $contenido = ""
+var $nombre=""
 var db;
 function conectar_base()
  {
@@ -27,7 +29,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
  function onDeviceReady() {
 	 
  conectar_base();
-	 
+
+
+ $('#datos').on('tap', function(){
+	Guardar(); 
+ });
 	$(".icono-grande").on("tap",function(){
 		if($(this).hasClass("sexo-h"))
 		 {
@@ -136,11 +142,11 @@ if ( sexo == -1 ||  edad == -1 ||  conoce == -1 ||  hace == -1 || bulleado == -1
 
 db.transaction(function(tx) {
               tx.executeSql("INSERT INTO encuestas (sexo, edad, conoce, hace, bulleado, denunciado) VALUES (?,?,?,?,?,?)", [sexo, edad, conoce,hace, bulleado, denunciado], function(tx, res) {
-				  alert ("guardado");
 				  				  $("#confirmacion").popup();
 				  $("#confirmacion").popup("open");
 				  			  			db.transaction(function(tx) {
         tx.executeSql("select count(folioEncuesta) as cuantas from encuestas;", [], function(tx, res) {
+
 
           $('#cuantas').html(res.rows.item(0).cuantas);
         });
@@ -151,15 +157,7 @@ db.transaction(function(tx) {
 			  
 			  }); 	   
    });
-   
 
-		
-
-
-
-
-   
-   //*****************
   }
    });
    
@@ -180,6 +178,7 @@ $('#continuar').on('tap', function (){
   $(".R2n").removeClass('rojo');
   $(".R3n").removeClass('rojo');
   $(".R4n").removeClass('rojo');
+  $(".edad").removeClass('edad-seleccionada');
   if ($('#pregunta4').hasClass('oculta'))
    {
     $('#pregunta4').removeClass('oculta');
@@ -189,6 +188,71 @@ $('#continuar').on('tap', function (){
         scrollTop: 0 
     }, 400);
 });
+
+
+
+//*************************
+
+
+            function gotFS(fileSystem) {
+
+				 var fecha = new Date();
+
+ 
+$nombre = fecha.getDate() + "-" + (fecha.getMonth() +1) + "-" + fecha.getFullYear() + "-" + fecha.getHours() + "-" + fecha.getMinutes() + "-" + fecha.getSeconds();
+				
+   fileSystem.root.getDirectory("Datos_EncuestaBullying", {create: true}, gotDir);
+}
+
+function gotDir(dirEntry) {
+    dirEntry.getFile($nombre+".csv", {create: true, exclusive: true}, gotFileEntry);
+
+
+            }
+
+            function gotFileEntry(fileEntry) {
+                fileEntry.createWriter(gotFileWriter, fail);
+            }
+
+            function gotFileWriter(writer) {
+                writer.onwrite = function(evt) {				
+					
+                    console.log("Correcto");
+                };
+
+                writer.write($contenido);
+				alert ("Archivo Guardado");
+                writer.abort();
+
+            }
+
+            function fail(error) {
+                console.log("error : "+error.code);
+            }
+function Guardar()
+{
+	$contenido = "Folio Encuesta, Sexo, Edad, Conoce, Hace, Bulleado, Denunciado" + "\n";
+
+	db.transaction(function(tx) {
+        tx.executeSql("select * from encuestas;", [], function(tx, res) {
+    for (i = 1; i <= res.rows.length; i++) { 
+	
+	$contenido = $contenido + res.rows.item(i).folioEncuesta + "," + res.rows.item(i).sexo + "," + res.rows.item(i).edad + "," +res.rows.item(i).conoce + "," + res.rows.item(i).hace + "," + res.rows.item(i).bulleado + "," +res.rows.item(i).denunciado  +"\n"; 
+
+    }  
+
+        });
+      });
+		
+		
+
+
+  
+window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+
+}
+
+//*******************
 
 
  }
