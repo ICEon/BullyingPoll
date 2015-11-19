@@ -16,15 +16,17 @@
    </author>  
    
    <!-- Personaliza la aplicacion y plataforma  -->  
-   <preference name="phonegap-version"      value="3.7.0" />    
+   <platform name="android">
+   <preference name="phonegap-version" value="4.0.2" />
+   <preference name="orientation" value="landscape" />
    <preference name="orientation"        value="portrait" />    
    <preference name="target-device"       value="universal" />   
    <preference name="fullscreen"         value="true" />      
    <preference name="android-installLocation"  value="auto" />  
    <preference name="SplashScreen" value="splash"/>
-   <preference name="SplashScreenDelay" value="5000"/>
+   <preference name="SplashScreenDelay" value="2000"/>
 
-
+</platform>
    <!-- Plugins -->  
    <!-- Core plugins -->  
 

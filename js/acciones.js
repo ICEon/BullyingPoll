@@ -8,16 +8,25 @@ var denunciado = 0;
 var db;
 function conectar_base()
  {
-	 alert("dentro");
+
 			db = window.sqlitePlugin.openDatabase({name: "bullying.db", createFromLocation: 1});
-            alert ("fuera");
+
+			
+			db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as cuantas from encuestas;", [], function(tx, res) {
+
+          $('#cuantas').html(res.rows.item(0).cuantas);
+        });
+      });
+			
+			
  }
 $(document).ready(function(e) {
 	
 document.addEventListener("deviceready", onDeviceReady, false);
  function onDeviceReady() {
 	 
-	 conectar_base();
+ conectar_base();
 	 
 	$(".icono-grande").on("tap",function(){
 		if($(this).hasClass("sexo-h"))
@@ -116,14 +125,26 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
    $('#guardar').on('tap', function(){
-	   
+
 db.transaction(function(tx) {
               tx.executeSql("INSERT INTO encuestas (sexo, edad, conoce, hace, bulleado, denunciado) VALUES (?,?,?,?,?,?)", [sexo, edad, conoce,hace, bulleado, denunciado], function(tx, res) {alert("agregado");
-			  $('#cuantas').html( valueOf($('#cuantas').html())+1);			  }, function(e) {
+			  			db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as cuantas from encuestas;", [], function(tx, res) {
+
+          $('#cuantas').html(res.rows.item(0).cuantas);
+        });
+      });
+			   
+			    }, function(e) {
             alert ("ERROR: " + e.message);
 			  
 			  }); 	   
    });
+
+
+//alert ($('#cuantas').html());
+
+	//   $('#cuantas').html(parseInt ($('#cuantas').html())+1);
    });
  }
 
