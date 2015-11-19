@@ -16,7 +16,6 @@
    </author>  
    
    <!-- Personaliza la aplicacion y plataforma  -->  
-
   <preference name="phonegap-version" value="3.7.0 " />
   <preference name="orientation" value="landscape" />
 
@@ -27,7 +26,6 @@
    <preference name="android-installLocation"  value="auto" />  
    <preference name="SplashScreen" value="splash"/>
    <preference name="SplashScreenDelay" value="2000"/>
-
 
    <!-- Plugins -->  
    <!-- Core plugins -->  
