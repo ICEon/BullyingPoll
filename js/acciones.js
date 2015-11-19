@@ -116,12 +116,12 @@ var $ptotalhombres;
 
 
           $totalhombres = res.rows.item(0).totalhombres;
-
+alert ("totalh " + $totalhombres);
         });
       });	 
 $('#total').html($total);
 $('#totalHombres').html($totalhombres);
-alert ("totalh " + $totalhombres);
+
 $ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
 alert ("ptotalh " + $ptotalhombres);
 $('#PtotalHombres').html($ptotalhombres);
