@@ -130,8 +130,8 @@ db.transaction(function(tx) {
 	  $('#total').html($total);
 	  $('#totalHombres').html($totalhombres);
 	  $('#totalMujeres').html($totalmujeres);
-	  
-	  $('#datosHombres').css('width', Math.round(($totalhombres*100)/$total));
+	  alert (Math.round(($totalhombres*100)/$total));
+//	  $('#datosHombres').css('width', Math.round(($totalhombres*100)/$total));
 	  
 
 	 
