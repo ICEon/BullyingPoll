@@ -108,35 +108,6 @@ document.addEventListener("deviceready", onDeviceReady, false);
  $('#resultados').on('tap', function(){
 	   $("#opciones").popup("close");	 	 
 alert ("dentro");
-	 var $total = parseInt ($('#cuantas').html());
-	 
-db.transaction(function(tx) {
-        tx.executeSql("select count(folioEncuesta) as totalhombres from encuestas where sexo = 'H';", [], function(tx, res) {
-
-
-          var $totalhombres = res.rows.item(0).totalhombres;
-
-        });
-      });	 
-
-db.transaction(function(tx) {
-        tx.executeSql("select count(folioEncuesta) as totalmujeres from encuestas where sexo = 'M';", [], function(tx, res) {
-
-
-          var $totalmujeres = res.rows.item(0).totalmujeres;
-
-        });
-      });	 
-
-
-
-
-	  $('#total').html($total);
-	 alert ($totalhombres);
-	 	 alert ($totalmujeres);
-	  $('#totalHombres').html($totalhombres);
-	  $('#totalMujeres').html($totalmujeres);
-//	  $('#datosHombres').css('width', Math.round(($totalhombres*100)/$total));
 	  
 
 	 
