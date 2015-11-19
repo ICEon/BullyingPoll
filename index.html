@@ -46,6 +46,19 @@
       </div>
     </div>
     
+   <div data-role="popup" id="exportado" data-overlay-theme="a" data-theme="b">
+      <div data-role="header" data-theme="a">
+        <h1 style=" margin:1px 20px 1px;">Confirmación</h1>
+      </div>
+
+      <div data-role="main" class="ui-content">
+       <div align="center">
+        <h3>Archivo <span id="archivo"></span> creado</h3>
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Continuar</a>
+       </div>
+      </div>
+    </div> 
+    
    <div data-role="popup" id="faltan" data-overlay-theme="a" data-theme="b" data-dismissible="false">
       <div data-role="header" data-theme="a">
         <h1 style=" margin:1px 20px 1px;">Error</h1>
@@ -59,6 +72,27 @@
       </div>
     </div>
    
+   <div data-role="popup" id="opciones" data-overlay-theme="a" data-theme="b" >
+      <div data-role="header" data-theme="a">
+        <h1 style=" margin:1px 20px 1px;">Selecciona una opcion</h1>
+      </div>
+
+      <div data-role="main" class="ui-content">
+       <div align="center">
+        <p class="oculta" id="sindatos">No hay datos que guardar o mostrar</p>
+        <div align="center" class="oculta" id="opcionesE">
+                 Exportar
+         <i class="ion-android-archive icono-mediano" id="exportar"></i>
+         <i class="ion-stats-bars icono-mediano" id="resultados"></i>
+         Estadistica
+        </div>
+        <div align="center">
+        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-delete" data-rel="back" >Cerrar</a>          
+        </div>
+       </div>
+      </div>
+    </div>
+
     
    <div align="center" id="arriba">
        <i class="ion-man icono-grande sexo-h"></i>
@@ -74,7 +108,7 @@
    </div>
 
   
-  <div id="pregunta" align="center">
+  <div class="pregunta" align="center">
    ¿Sabes que es el bullying?
    <div id="uno">
     <div class="respuesta1 R1s">Si</div>
@@ -82,7 +116,7 @@
    </div>
   </div>
 
-  <div id="pregunta" align="center">
+  <div class="pregunta" align="center">
    ¿Alguna vez has hecho bullying en la escuela?
    <div id="dos">
     <div class="respuesta2 R2s">Si</div>
@@ -91,7 +125,7 @@
   </div>
 
 
-  <div id="pregunta" align="center">
+  <div class="pregunta" align="center">
    ¿Alguna vez has sido victima de bullying en la escuela?
    <div id="tres">
     <div class="respuesta3 R3s">Si</div>
@@ -99,8 +133,8 @@
    </div>
   </div>
 
-  <div id="pregunta4" class="oculta" align="center">
-   ¿Lo has denunciado a las autoridades escolares o a algún maestro?
+  <div class="pregunta" align="center">
+   ¿Has denunciado a las autoridades escolares o a algún maestro el bullying hacia ti o hacia otra persona?
    <div id="cuatro">
     <div class="respuesta4 R4s">Si</div>
     <div class="respuesta4 R4n">No</div>
@@ -116,7 +150,194 @@
  </div>  
  </div>
  <!-- Principal -->
+ 
 
+<!-- Resultados -->
+ <div data-role="page" id="resultados" >   
+  <div data-role="header">
+    <h1>Resultados estadisticos</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <div align="center">
+     <div align="center">
+      Alumnos encuestados
+     </div>
+     <div align="center" id="total">
+      323
+     </div>
+     <div class="muestraPregunta">
+      <div  align="center" style="width:18%; display:inline-block;">
+       <div id="totalHombres">123</div>
+       <i class="ion-man icono-mediano sexo-h icono-azul"></i> 
+      </div>
+      <div style=" width:60%; display: inline-block;">
+       <div id="hombres" style="width:49%; display:inline-block;" align="right">
+
+        <div id="datosHombres" style="background-color:#00F; display:inline-block; width:60%; font-size:1.5em;">
+         &nbsp;
+        </div>
+       </div>
+       <div id="mujeres" style="width:49%; display:inline-block;" align="left">
+        <div id="datosMujeres" style="background-color:#F737ED; display:inline-block; width:30%; font-size:1.5em;">
+         &nbsp;
+        </div>
+
+       </div>
+      </div>
+      <div align="center" style=" width:18%; display: inline-block;">
+       <div id="totalMujeres">123</div>
+       <i class="ion-woman icono-mediano sexo-m icono-rosa"></i>
+      </div>
+     </div>
+    </div>
+
+<!-- ************** -->
+<hr>
+    <div align="center">
+     <div align="center">
+      Alumnos que conocen que es el <span style="color:#F00">Bullying</span>
+     </div>
+     <div align="center" id="totalConocen">
+      323
+     </div>
+     <div class="muestraPregunta">
+      <div  align="center" style="width:18%; display:inline-block;">
+       <div id="totalHombresConocen">123</div>
+       <div class="icono-mediano verde">Si</div> 
+      </div>
+      <div style=" width:60%; display: inline-block;">
+       <div id="hombres" style="width:49%; display:inline-block;" align="right">
+
+        <div id="datosHombresConocen" style="background-color:#0F0; display:inline-block; width:95%; font-size:1.5em;">
+         &nbsp;
+        </div>
+       </div>
+       <div id="mujeres" style="width:49%; display:inline-block;" align="left">
+        <div id="datosMujeresConocen" style="background-color:#0F0; display:inline-block; width:99%; font-size:1.5em;">
+         &nbsp;
+        </div>
+
+       </div>
+      </div>
+      <div align="center" style=" width:18%; display: inline-block;">
+       <div id="totalMujeresConocen">123</div>
+       <div class="icono-mediano verde">Si</div>
+      </div>
+     </div>
+    </div>
+
+<!-- ************** -->
+<hr>
+    <div align="center">
+     <div align="center">
+      Han hecho <span style="color:#F00">Bullying</span> alguna vez
+     </div>
+     <div align="center" id="totalHacen">
+      323
+     </div>
+     <div class="muestraPregunta">
+      <div  align="center" style="width:18%; display:inline-block;">
+       <div id="totalHombresHacen">123</div>
+       <div class="icono-mediano verde">Si</div> 
+      </div>
+      <div style=" width:60%; display: inline-block;">
+       <div style="width:49%; display:inline-block;" align="right">
+
+        <div id="datosHombresHacen" style="background-color:#0F0; display:inline-block;  width:39%; font-size:1.5em;">
+         &nbsp;
+        </div>
+       </div>
+       <div style="width:49%; display:inline-block;" align="left">
+        <div id="datosMujeresHacen" style="background-color:#0F0; display:inline-block; width:20%; font-size:1.5em;">
+         &nbsp;
+        </div>
+
+       </div>
+      </div>
+      <div align="center" style=" width:18%; display: inline-block;">
+       <div id="totalMujeresHacen">123</div>
+       <div class="icono-mediano verde">Si</div> 
+      </div>
+     </div>
+    </div>
+<!-- ************** -->
+<hr>
+    
+<!-- ************** -->
+    <div align="center">
+     <div align="center">
+      Han sufrido <span style="color:#F00">Bullying</span> alguna vez
+     </div>
+     <div align="center" id="totalSufren">
+      323
+     </div>
+     <div class="muestraPregunta">
+      <div  align="center" style="width:18%; display:inline-block;">
+       <div id="totalHombresSufren">123</div>
+       <div class="icono-mediano verde">Si</div> 
+      </div>
+      <div style=" width:60%; display: inline-block;">
+       <div style="width:49%; display:inline-block;" align="right">
+
+        <div id="datosHombresSufren" style="background-color:#0F0; display:inline-block;  width:10%; font-size:1.5em;">
+         &nbsp;
+        </div>
+       </div>
+       <div style="width:49%; display:inline-block;" align="left">
+        <div id="datosMujeresSufren" style="background-color:#0F0; display:inline-block; width:15%; font-size:1.5em;">
+         &nbsp;
+        </div>
+
+       </div>
+      </div>
+      <div align="center" style=" width:18%; display: inline-block;">
+       <div id="totalMujeresSufren">123</div>
+       <div class="icono-mediano verde">Si</div> 
+      </div>
+     </div>
+    </div>
+<!-- ************** -->
+
+<hr>
+<!-- ************** -->
+    <div align="center">
+     <div align="center">
+      Han denunciado el <span style="color:#F00">Bullying</span> con la autoridad en la escuela
+     </div>
+     <div align="center" id="totalDenunciado">
+      323
+     </div>
+     <div class="muestraPregunta">
+      <div  align="center" style="width:18%; display:inline-block;">
+       <div id="totalHombresDenunciado">123</div>
+       <div class="icono-mediano rojo">No</div> 
+      </div>
+      <div style=" width:60%; display: inline-block;">
+       <div style="width:49%; display:inline-block;" align="right">
+
+        <div id="datosHombresDenunciado" style="background-color:#F00; display:inline-block; width:70%; font-size:1.5em;">
+         &nbsp;
+        </div>
+       </div>
+       <div style="width:49%; display:inline-block;" align="left">
+        <div id="datosMujeresDenunciado" style="background-color:#F00; display:inline-block; width:60%; font-size:1.5em;">
+         &nbsp;
+        </div>
+
+       </div>
+      </div>
+      <div align="center" style=" width:18%; display: inline-block;">
+       <div id="totalMujeresDenunciado">123</div>
+       <div class="icono-mediano rojo">No</div> 
+      </div>
+     </div>
+    </div>
+<!-- ************** -->
+  </div>
+
+ </div>  
+ <!-- Resultados -->
 
 
 

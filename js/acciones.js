@@ -39,7 +39,10 @@ function gotDir(dirEntry) {
                 };
 
                 writer.write($contenido);
-//				alert ("Archivo Guardado");
+				$("#archivo").html($nombre + ".csv");
+				$("#exportado").popup();
+                $("#exportado").popup("open");	 
+				
                 writer.abort();
 
             }
@@ -101,18 +104,32 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	 
  conectar_base();
 
-
+ 
+ $('#cerrarOpciones').on('tap', function(){
+  $("#opciones").popup("close");	 	 
+ });
+ 
+ $('#exportar').on('tap', function(){
+	 Guardar();
+ });
+ 
  $('#datos').on('tap', function(){
+
+  $("#opciones").popup();
+  $("#opciones").popup("open");	 
+
 	 
 if ( parseInt($('#cuantas').html()) > 0)
  {
-	Guardar(); 
+    	     $('#opcionesE').removeClass('oculta');
  }
  else
   {
+     $('#sindatos').removeClass('oculta');
 	//  alert ("no hay estadistica que guardar o mostrar");
   }
  });
+ 
 	$(".icono-grande").on("tap",function(){
 		if($(this).hasClass("sexo-h"))
 		 {
@@ -174,18 +191,13 @@ if ( parseInt($('#cuantas').html()) > 0)
 		  $(".R3s").addClass('verde');
 		  $(".R3n").removeClass('rojo');
 		  bulleado = 1;
-		  $('#pregunta4').removeClass('oculta');
 		  
 		 }
 		else if ($(this).hasClass("R3n"))
 		 {
 		  $(".R3n").addClass('rojo');
 		  $(".R3s").removeClass('verde');
-  		  $('#pregunta4').addClass('oculta');
-		  $(".R4n").addClass('rojo');
-		  $(".R4s").removeClass('verde');
 		  bulleado = 0;
-		  denunciado = 0;
 		 }		 	  
 
 	});
@@ -258,10 +270,7 @@ $('#continuar').on('tap', function (){
   $(".R3n").removeClass('rojo');
   $(".R4n").removeClass('rojo');
   $(".edad").removeClass('edad-seleccionada');
-  if (!$('#pregunta4').hasClass('oculta'))
-   {
-    $('#pregunta4').addClass('oculta');
-   }
+
   
 		       $('html, body').animate({
         scrollTop: 0 
