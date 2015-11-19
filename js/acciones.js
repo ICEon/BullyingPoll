@@ -135,6 +135,29 @@ var $total = parseInt($('#cuantas').html());
         });
       });	 
 	  
+	  db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalhombres from encuestas where sexo = 'H' and conoce = 1;", [], function(tx, res) {
+          $totalhombres = res.rows.item(0).totalhombres;
+          $('#totalHombresConocen').html($totalhombres);
+          $ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
+          $('#PtotalHombresConocen').html($ptotalhombres+'%');
+          $('#datosHombresConocen').width($ptotalhombres + '%');
+        });
+      });	 
+	  
+	  	  db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalmujeres from encuestas where sexo = 'M' conoce = 1;", [], function(tx, res) {
+          $totalmujeres = res.rows.item(0).totalmujeres;
+          $('#totalMujeresConocen').html($totalmujeres);
+          $ptotalmujeres = Math.round((parseInt($totalmujeres)*100)/$total);
+          $('#PtotalMujeresConocen').html($ptotalmujeres+'%');
+          $('#datosMujeresConocen').width($ptotalmujeres + '%');
+        });
+      });	 
+	  
+	  
+	  
+	  
 $('#total').html($total);
 
 
