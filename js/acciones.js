@@ -146,7 +146,7 @@ var $total = parseInt($('#cuantas').html());
       });	 
 	  
 	  	  db.transaction(function(tx) {
-        tx.executeSql("select count(folioEncuesta) as totalmujeres from encuestas where sexo = 'M' conoce = 1;", [], function(tx, res) {
+        tx.executeSql("select count(folioEncuesta) as totalmujeres from encuestas where sexo = 'M' and conoce = 1;", [], function(tx, res) {
           $totalmujeres = res.rows.item(0).totalmujeres;
           $('#totalMujeresConocen').html($totalmujeres);
           $ptotalmujeres = Math.round((parseInt($totalmujeres)*100)/$total);
@@ -155,11 +155,73 @@ var $total = parseInt($('#cuantas').html());
         });
       });	 
 	  
+	  db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalhombres from encuestas where sexo = 'H' and hace = 1;", [], function(tx, res) {
+          $totalhombres = res.rows.item(0).totalhombres;
+          $('#totalHombresHacen').html($totalhombres);
+          $ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
+          $('#PtotalHombresHacen').html($ptotalhombres+'%');
+          $('#datosHombresHacen').width($ptotalhombres + '%');
+        });
+      });	 
+	  
+	  	  db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalmujeres from encuestas where sexo = 'M' and hace = 1;", [], function(tx, res) {
+          $totalmujeres = res.rows.item(0).totalmujeres;
+          $('#totalMujeresHacen').html($totalmujeres);
+          $ptotalmujeres = Math.round((parseInt($totalmujeres)*100)/$total);
+          $('#PtotalMujeresHacen').html($ptotalmujeres+'%');
+          $('#datosMujeresHacen').width($ptotalmujeres + '%');
+        });
+      });	 
+
+ db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalhombres from encuestas where sexo = 'H' and bulleado = 1;", [], function(tx, res) {
+          $totalhombres = res.rows.item(0).totalhombres;
+          $('#totalHombresSufren').html($totalhombres);
+          $ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
+          $('#PtotalHombresSufren').html($ptotalhombres+'%');
+          $('#datosHombresSufren').width($ptotalhombres + '%');
+        });
+      });	 
+	  
+	  	  db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalmujeres from encuestas where sexo = 'M' and bulleado = 1;", [], function(tx, res) {
+          $totalmujeres = res.rows.item(0).totalmujeres;
+          $('#totalMujeresSufren').html($totalmujeres);
+          $ptotalmujeres = Math.round((parseInt($totalmujeres)*100)/$total);
+          $('#PtotalMujeresSufren').html($ptotalmujeres+'%');
+          $('#datosMujeresSufren').width($ptotalmujeres + '%');
+        });
+      });	 
+	  
+	   db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalhombres from encuestas where sexo = 'H' and denunciado = 1;", [], function(tx, res) {
+          $totalhombres = res.rows.item(0).totalhombres;
+          $('#totalHombresDenunciado').html($totalhombres);
+          $ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
+          $('#PtotalHombresDenunciado').html($ptotalhombres+'%');
+          $('#datosHombresDenunciado').width($ptotalhombres + '%');
+        });
+      });	 
+	  
+	  	  db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalmujeres from encuestas where sexo = 'M' and denunciado = 1;", [], function(tx, res) {
+          $totalmujeres = res.rows.item(0).totalmujeres;
+          $('#totalMujeresDenunciado').html($totalmujeres);
+          $ptotalmujeres = Math.round((parseInt($totalmujeres)*100)/$total);
+          $('#PtotalMujeresDenunciado').html($ptotalmujeres+'%');
+          $('#datosMujeresDenunciado').width($ptotalmujeres + '%');
+        });
+      });	 
 	  
 	  
 	  
 $('#total').html($total);
-
+$('#totalConocen').html(parseInt($('#totalHombresConocen').html())+parseInt($('#totalMujeresConocen').html()));
+$('#totalHacen').html(parseInt($('#totalHombresHacen').html())+parseInt($('#totalMujeresHacen').html()));
+$('#totalSufren').html(parseInt($('#totalHombresSufren').html())+parseInt($('#totalMujeresSufren').html()));
+$('#totalDenunciado').html(parseInt($('#totalHombresDenunciado').html())+parseInt($('#totalMujeresDenunciado').html()));
 
 
 	 
