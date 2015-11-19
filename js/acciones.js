@@ -118,7 +118,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
    $('#guardar').on('tap', function(){
 	   
 db.transaction(function(tx) {
-              tx.executeSql("INSERT INTO encuestas (sexo, edad, conoce, hace, bulleado, denunciado) VALUES (?,?,?,?,?,?)", [sexo, edad, conoce,hace, bulleado, denunciado], function(tx, res) {alert("agregado");}, function(e) {
+              tx.executeSql("INSERT INTO encuestas (sexo, edad, conoce, hace, bulleado, denunciado) VALUES (?,?,?,?,?,?)", [sexo, edad, conoce,hace, bulleado, denunciado], function(tx, res) {alert("agregado");
+			  $('#cuantas').html( valueOf($('#cuantas').html())+1);			  }, function(e) {
             alert ("ERROR: " + e.message);
 			  
 			  }); 	   
