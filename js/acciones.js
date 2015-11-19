@@ -14,7 +14,7 @@ function conectar_base()
 			
 			db.transaction(function(tx) {
         tx.executeSql("select count(folioEncuesta) as cuantas from encuestas;", [], function(tx, res) {
-
+alert (res.rows.item(0).cuantas);
           $('#cuantas').html(res.rows.item(0).cuantas);
         });
       });
@@ -157,12 +157,17 @@ db.transaction(function(tx) {
    //*****************
 
    });
- }
+   
 $('#continuar').on('tap', function (){
 
 		       $('html, body').animate({
         scrollTop: 0 
     }, 700);
 });
+
+
+ }
+
+
 });
 
