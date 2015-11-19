@@ -111,14 +111,13 @@ document.addEventListener("deviceready", onDeviceReady, false);
  });
  
  $('#exportar').on('tap', function(){
-     $("#opciones").popup("open");	 
+     $("#opciones").popup("close");	 
 	 Guardar();
  });
  
- $('#datos').on('tap', function(){
 
-  $("#opciones").popup();
-  $("#opciones").popup("open");	 
+ $('#btndatos').on('tap', function(){
+
 
 	 
 if ( parseInt($('#cuantas').html()) > 0)
@@ -130,6 +129,10 @@ if ( parseInt($('#cuantas').html()) > 0)
      $('#sindatos').removeClass('oculta');
 	//  alert ("no hay estadistica que guardar o mostrar");
   }
+  
+  $("#opciones").popup();
+  $("#opciones").popup("open");	 
+
  });
  
 	$(".icono-grande").on("tap",function(){
