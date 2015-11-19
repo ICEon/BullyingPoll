@@ -25,16 +25,23 @@
 	color: #F737ED;	
 	border-color: #F737ED;
  }
-
+#titulo
+ {
+	font-size: 130%;
+	font-weight:bold; 
+	text-align: center;
+	padding: 10px; 
+ }
 #guardar
  {
 	font-size: 200%;
 	font-weight:bold;
-	margin: 40px 20px 10px;
+	margin: 40px 20px 40px;
 	color: #600;	
 	border: 2px solid #600;	
 	text-align: center;
 	padding: 5px; 
+	border-radius: 10%;
  }
 .edad
 {

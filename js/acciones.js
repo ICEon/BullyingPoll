@@ -5,11 +5,12 @@ var conoce = 0;
 var hace = 0;
 var bulleado = 0;
 var denunciado = 0;
-
+var db;
 function conectar_base()
  {
-			var db = window.sqlitePlugin.openDatabase({name: "bullying.db", createFromLocation: 1});
-            
+	 alert("dentro");
+			db = window.sqlitePlugin.openDatabase({name: "bullying.db", createFromLocation: 1});
+            alert ("fuera");
  }
 $(document).ready(function(e) {
 	
@@ -117,7 +118,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
    $('#guardar').on('tap', function(){
 	   
 db.transaction(function(tx) {
-              tx.executeSql("INSERT INTO encuestas (sexo, edad, conoce, hace, bulleado, denunciado) VALUES (?,?,?,?,?,?)", [sexo, edad, conoce,hace, bulleado, denunciado], function(tx, res) {}, function(e) {
+              tx.executeSql("INSERT INTO encuestas (sexo, edad, conoce, hace, bulleado, denunciado) VALUES (?,?,?,?,?,?)", [sexo, edad, conoce,hace, bulleado, denunciado], function(tx, res) {alert("agregado");}, function(e) {
             alert ("ERROR: " + e.message);
 			  
 			  }); 	   
