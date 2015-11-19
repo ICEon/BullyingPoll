@@ -113,9 +113,99 @@ db.transaction(function(tx) {
 
 
           var $totalhombres = res.rows.item(0).totalhombres;
-		  alert ($totalhombres);
+
         });
       });	 
+
+db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalmujeres from encuestas where sexo = 'M';", [], function(tx, res) {
+
+
+          var $totalmujeres = res.rows.item(0).totalmujeres;
+
+        });
+      });	 
+
+db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalhombresconoce from encuestas where sexo = 'H' and conoce = 1;", [], function(tx, res) {
+
+
+          var $totalhombresconoce = res.rows.item(0).totalhombresconoce;
+
+        });
+      });	 
+
+db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalmujeresconoce from encuestas where sexo = 'M' and conoce = 1;", [], function(tx, res) {
+
+
+          var $totalmujeresconoce = res.rows.item(0).totalmujeresconoce;
+
+        });
+      });	 
+	  
+db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalhombreshace from encuestas where sexo = 'H' and hace = 1;", [], function(tx, res) {
+
+
+          var $totalhombreshace = res.rows.item(0).totalhombreshace;
+
+        });
+      });	 
+
+db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalmujereshace from encuestas where sexo = 'M' and hace = 1;", [], function(tx, res) {
+
+
+          var $totalmujereshace = res.rows.item(0).totalmujereshace;
+
+        });
+      });	 
+	  
+	  db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalhombrebulleado from encuestas where sexo = 'H' and bulleado = 1;", [], function(tx, res) {
+
+
+          var $totalhombresbulleado = res.rows.item(0).totalhombresbulleado;
+
+        });
+      });	 
+
+db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalmujeresbulleado from encuestas where sexo = 'M' and bulleado = 1;", [], function(tx, res) {
+
+
+          var $totalmujeresbulleado = res.rows.item(0).totalmujeresbulledao;
+
+        });
+      });	 
+	  
+	  db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalhombresdenunciado from encuestas where sexo = 'H' and denunciado = 0;", [], function(tx, res) {
+
+
+          var $totalhombresdenunciado = res.rows.item(0).totalhombresdenunciado;
+
+        });
+      });	 
+
+db.transaction(function(tx) {
+        tx.executeSql("select count(folioEncuesta) as totalmujeresdenunciado from encuestas where sexo = 'M' and denunciado = 0;", [], function(tx, res) {
+
+
+          var $totalmujeresdenunciado = res.rows.item(0).totalmujeresdenunciado;
+
+        });
+      });	 
+
+
+	  $('#total').html($total);
+	  $('#totalHombres').html($totalhombres);
+	  $('#totalMujeres').html($totalmujeres);
+	  
+	  $('#datosHombres').css('width', Math.round(($totalhombres*100)/$total));
+	  
+
 	 
 	$(':mobile-pagecontainer').pagecontainer('change', '#pagestadistica'); 
  });
