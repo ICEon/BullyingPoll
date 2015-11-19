@@ -18,7 +18,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	 
 	 conectar_base();
 	 
-	$(".icono-grande").on("click",function(){
+	$(".icono-grande").on("tap",function(){
 		if($(this).hasClass("sexo-h"))
 		 {
 		  $(".sexo-h").addClass('icono-azul');
@@ -33,14 +33,14 @@ document.addEventListener("deviceready", onDeviceReady, false);
 		 }		 
 	});
 	
-	$(".edad").on("click",function(){
+	$(".edad").on("tap",function(){
 	  $(".edad").removeClass('edad-seleccionada');
 	  $(this).addClass('edad-seleccionada');
 	  edad = $(this).html();
 
 	});
 	
-	$(".respuesta1").on("click", function(event){
+	$(".respuesta1").on("tap", function(event){
       if($(this).hasClass("R1s"))
 		 {
 		  $(".R1s").addClass('verde');
@@ -56,7 +56,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 	});
 	
-		$(".respuesta2").on("click", function(event){
+		$(".respuesta2").on("tap", function(event){
       if($(this).hasClass("R2s"))
 		 {
 		  $(".R2s").addClass('verde');
@@ -72,7 +72,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 	});
 
-	$(".respuesta3").on("click", function(event){
+	$(".respuesta3").on("tap", function(event){
 
       if($(this).hasClass("R3s"))
 		 {
@@ -96,7 +96,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	});
 	
 
-	$(".respuesta4").on("click", function(event){
+	$(".respuesta4").on("tap", function(event){
       if($(this).hasClass("R4s"))
 		 {
 		  $(".R4s").addClass('verde');
@@ -114,7 +114,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
 
-   $('#guardar').on('click', function(){
+   $('#guardar').on('tap', function(){
 	   
 db.transaction(function(tx) {
               tx.executeSql("INSERT INTO encuestas (sexo, edad, conoce, hace, bulleado, denunciado) VALUES (?,?,?,?,?,?)", [sexo, edad, conoce,hace, bulleado, denunciado], function(tx, res) {}, function(e) {
