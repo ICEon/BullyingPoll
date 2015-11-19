@@ -105,7 +105,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	 
  conectar_base();
 
- 
+ $('#resultados').on('tap', function(){
+	$(':mobile-pagecontainer').pagecontainer('change', '#pagestadistica'); 
+ });
  $('#cerrarOpciones').on('tap', function(){
   $("#opciones").popup("close");	 	 
  });
