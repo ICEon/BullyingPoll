@@ -39,7 +39,6 @@ function gotDir(dirEntry) {
                 };
 
                 writer.write($contenido);
-				alert ("here");
 				$("#archivo").html($nombre + ".csv");
 				$("#exportado").popup();
                 $("#exportado").popup("open");	 
