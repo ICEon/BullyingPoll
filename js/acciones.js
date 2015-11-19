@@ -131,6 +131,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 db.transaction(function(tx) {
               tx.executeSql("INSERT INTO encuestas (sexo, edad, conoce, hace, bulleado, denunciado) VALUES (?,?,?,?,?,?)", [sexo, edad, conoce,hace, bulleado, denunciado], function(tx, res) {
+				  alert ("guardado");
 				  				  $("#confirmacion").popup();
 				  $("#confirmacion").popup("open");
 				  			  			db.transaction(function(tx) {
