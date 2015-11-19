@@ -223,7 +223,7 @@ $('#total').html($total);
 
 	 
 	$(':mobile-pagecontainer').pagecontainer('change', '#pagestadistica'); 
-	location.reload();
+	
 	$('#totalConocen').html( parseInt($('#totalHombresConocen').html()) + parseInt($('#totalMujeresConocen').html()) );
 $('#totalHacen').html(parseInt($('#totalHombresHacen').html())+parseInt($('#totalMujeresHacen').html()));
 $('#totalSufren').html(parseInt($('#totalHombresSufren').html())+parseInt($('#totalMujeresSufren').html()));
