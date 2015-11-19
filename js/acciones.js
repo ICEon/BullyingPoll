@@ -115,13 +115,13 @@ var $ptotalhombres;
         tx.executeSql("select count(folioEncuesta) as totalhombres from encuestas where sexo = 'H';", [], function(tx, res) {
 
 
-          $totalhombres = parseInt(res.rows.item(0).totalhombres);
+          $totalhombres = res.rows.item(0).totalhombres;
 
         });
       });	 
 $('#total').html($total);
 $('#totalHombres').html($totalhombres);
-$ptotalhombres = Math.round(($totalhombres*100)/$total);
+$ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
 $('#PtotalHombres').html($ptotalhombres);
 $('#datosHombres').width($ptotalhombres + '%');
 
