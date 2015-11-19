@@ -106,6 +106,8 @@ document.addEventListener("deviceready", onDeviceReady, false);
  conectar_base();
 
  $('#resultados').on('tap', function(){
+	   $("#opciones").popup("close");	 	 
+alert ("dentro");
 	 var $total = parseInt ($('#cuantas').html());
 	 
 db.transaction(function(tx) {
@@ -126,7 +128,8 @@ db.transaction(function(tx) {
         });
       });	 
 
-*/alert (Math.round(($totalhombres*100)/$total));
+*/
+alert (Math.round(($totalhombres*100)/$total));
 
 	  $('#total').html($total);
 	  $('#totalHombres').html($totalhombres);
