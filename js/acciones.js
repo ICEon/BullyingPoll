@@ -26,7 +26,7 @@ $(document).ready(function(e) {
 document.addEventListener("deviceready", onDeviceReady, false);
  function onDeviceReady() {
 	 
-// conectar_base();
+ conectar_base();
 	 
 	$(".icono-grande").on("tap",function(){
 		if($(this).hasClass("sexo-h"))
