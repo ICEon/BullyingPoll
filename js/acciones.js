@@ -122,6 +122,7 @@ var $ptotalhombres;
 $('#total').html($total);
 $('#totalHombres').html($totalhombres);
 $ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
+alert ("ptotalh " + $ptotalhombres);
 $('#PtotalHombres').html($ptotalhombres);
 $('#datosHombres').width($ptotalhombres + '%');
 
