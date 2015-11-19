@@ -17,8 +17,10 @@
    
    <!-- Personaliza la aplicacion y plataforma  -->  
    <platform name="android">
-   <preference name="phonegap-version" value="4.0.2" />
-   <preference name="orientation" value="landscape" />
+
+  <preference name="orientation" value="landscape" />
+
+   <preference name="phonegap-version"      value="3.7.0" />    
    <preference name="orientation"        value="portrait" />    
    <preference name="target-device"       value="universal" />   
    <preference name="fullscreen"         value="true" />      
