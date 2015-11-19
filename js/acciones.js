@@ -26,7 +26,7 @@ $(document).ready(function(e) {
 document.addEventListener("deviceready", onDeviceReady, false);
  function onDeviceReady() {
 	 
- conectar_base();
+// conectar_base();
 	 
 	$(".icono-grande").on("tap",function(){
 		if($(this).hasClass("sexo-h"))
@@ -126,6 +126,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
    $('#guardar').on('tap', function(){
 
+//$("#confirmacion").popup();
+	//			  $("#confirmacion").popup("open");
+
 db.transaction(function(tx) {
               tx.executeSql("INSERT INTO encuestas (sexo, edad, conoce, hace, bulleado, denunciado) VALUES (?,?,?,?,?,?)", [sexo, edad, conoce,hace, bulleado, denunciado], function(tx, res) {
 				  				  $("#confirmacion").popup();
@@ -142,13 +145,23 @@ db.transaction(function(tx) {
 			  
 			  }); 	   
    });
+   
+
+		
 
 
-//alert ($('#cuantas').html());
 
-	//   $('#cuantas').html(parseInt ($('#cuantas').html())+1);
+
+   
+   //*****************
+
    });
  }
+$('#continuar').on('tap', function (){
 
+		       $('html, body').animate({
+        scrollTop: 0 
+    }, 700);
+});
 });
 
