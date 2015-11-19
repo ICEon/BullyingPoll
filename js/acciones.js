@@ -142,6 +142,8 @@ var $total = parseInt($('#cuantas').html());
           $ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
           $('#PtotalHombresConocen').html($ptotalhombres+'%');
           $('#datosHombresConocen').width($ptotalhombres + '%');
+		  	$('#totalConocen').html($totalhombres);
+
         });
       });	 
 	  
@@ -152,6 +154,7 @@ var $total = parseInt($('#cuantas').html());
           $ptotalmujeres = Math.round((parseInt($totalmujeres)*100)/$total);
           $('#PtotalMujeresConocen').html($ptotalmujeres+'%');
           $('#datosMujeresConocen').width($ptotalmujeres + '%');
+		  $('#totalConocen').html(parseInt($('#totalConocen').html()) + $totalmujeres);
         });
       });	 
 	  
@@ -162,6 +165,7 @@ var $total = parseInt($('#cuantas').html());
           $ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
           $('#PtotalHombresHacen').html($ptotalhombres+'%');
           $('#datosHombresHacen').width($ptotalhombres + '%');
+ 	  	  $('#totalHacen').html($totalhombres);
         });
       });	 
 	  
@@ -172,6 +176,7 @@ var $total = parseInt($('#cuantas').html());
           $ptotalmujeres = Math.round((parseInt($totalmujeres)*100)/$total);
           $('#PtotalMujeresHacen').html($ptotalmujeres+'%');
           $('#datosMujeresHacen').width($ptotalmujeres + '%');
+		  $('#totalHacen').html(parseInt($('#totalHacen').html()) + $totalmujeres);
         });
       });	 
 
@@ -182,6 +187,7 @@ var $total = parseInt($('#cuantas').html());
           $ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
           $('#PtotalHombresSufren').html($ptotalhombres+'%');
           $('#datosHombresSufren').width($ptotalhombres + '%');
+		  $('#totalSufren').html($totalhombres);
         });
       });	 
 	  
@@ -192,6 +198,7 @@ var $total = parseInt($('#cuantas').html());
           $ptotalmujeres = Math.round((parseInt($totalmujeres)*100)/$total);
           $('#PtotalMujeresSufren').html($ptotalmujeres+'%');
           $('#datosMujeresSufren').width($ptotalmujeres + '%');
+		  $('#totalSufren').html(parseInt($('#totalSufren').html()) + $totalmujeres);
         });
       });	 
 	  
@@ -202,6 +209,7 @@ var $total = parseInt($('#cuantas').html());
           $ptotalhombres = Math.round((parseInt($totalhombres)*100)/$total);
           $('#PtotalHombresDenunciado').html($ptotalhombres+'%');
           $('#datosHombresDenunciado').width($ptotalhombres + '%');
+		  $('#totalDenunciado').html($totalhombres);
         });
       });	 
 	  
@@ -212,6 +220,7 @@ var $total = parseInt($('#cuantas').html());
           $ptotalmujeres = Math.round((parseInt($totalmujeres)*100)/$total);
           $('#PtotalMujeresDenunciado').html($ptotalmujeres+'%');
           $('#datosMujeresDenunciado').width($ptotalmujeres + '%');
+		  $('#totalDenunciado').html(parseInt($('#totalDEnunciado').html()) + $totalmujeres);
         });
       });	 
 	  
@@ -219,22 +228,8 @@ var $total = parseInt($('#cuantas').html());
 	  
 $('#total').html($total);
 
-
-
-	 
-
-	
-	$('#totalConocen').html( parseInt($('#totalHombresConocen').html()) + parseInt($('#totalMujeresConocen').html()) );
-$('#totalHacen').html(parseInt($('#totalHombresHacen').html())+parseInt($('#totalMujeresHacen').html()));
-$('#totalSufren').html(parseInt($('#totalHombresSufren').html())+parseInt($('#totalMujeresSufren').html()));
-$('#totalDenunciado').html(parseInt($('#totalHombresDenunciado').html())+parseInt($('#totalMujeresDenunciado').html()));
-
 	$(':mobile-pagecontainer').pagecontainer('change', '#pagestadistica',{
-            transition: 'slide',
-            changeHash: true,
-            reverse: false,
-            showLoadMsg: true,
-            reload: false
+            transition: 'pop'
 			}); 
 
  });
