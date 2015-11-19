@@ -1,10 +1,10 @@
 // JavaScript Document
-var sexo = 0;
-var edad = 0;
-var conoce = 0;
-var hace = 0;
-var bulleado = 0;
-var denunciado = 0;
+var sexo = -1;
+var edad = -1;
+var conoce = -1;
+var hace = -1;
+var bulleado = -1;
+var denunciado = -1;
 var db;
 function conectar_base()
  {
@@ -14,7 +14,7 @@ function conectar_base()
 			
 			db.transaction(function(tx) {
         tx.executeSql("select count(folioEncuesta) as cuantas from encuestas;", [], function(tx, res) {
-alert (res.rows.item(0).cuantas);
+
           $('#cuantas').html(res.rows.item(0).cuantas);
         });
       });
@@ -125,9 +125,14 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
    $('#guardar').on('tap', function(){
+if ( sexo == -1 ||  edad == -1 ||  conoce == -1 ||  hace == -1 || bulleado == -1 || denunciado == -1)
+ {
+  $("#faltan").popup();
+  $("#faltan").popup("open");	 
+ }
+  else
+  {
 
-//$("#confirmacion").popup();
-	//			  $("#confirmacion").popup("open");
 
 db.transaction(function(tx) {
               tx.executeSql("INSERT INTO encuestas (sexo, edad, conoce, hace, bulleado, denunciado) VALUES (?,?,?,?,?,?)", [sexo, edad, conoce,hace, bulleado, denunciado], function(tx, res) {
@@ -155,14 +160,34 @@ db.transaction(function(tx) {
 
    
    //*****************
-
+  }
    });
    
 $('#continuar').on('tap', function (){
-
+ sexo = -1;
+ edad = -1;
+ conoce = -1;
+ hace = -1;
+ bulleado = -1;
+ denunciado = -1;
+  $(".sexo-m").removeClass('icono-rosa'); 
+  $(".sexo-h").removeClass('icono-azul');
+  $(".R1s").removeClass('verde');
+  $(".R2s").removeClass('verde');
+  $(".R3s").removeClass('verde');
+  $(".R4s").removeClass('verde');
+  $(".R1n").removeClass('rojo');
+  $(".R2n").removeClass('rojo');
+  $(".R3n").removeClass('rojo');
+  $(".R4n").removeClass('rojo');
+  if ($('#pregunta4').hasClass('oculta'))
+   {
+    $('#pregunta4').removeClass('oculta');
+   }
+  
 		       $('html, body').animate({
         scrollTop: 0 
-    }, 700);
+    }, 400);
 });
 
 
