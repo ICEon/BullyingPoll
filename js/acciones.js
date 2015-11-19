@@ -112,12 +112,12 @@ document.addEventListener("deviceready", onDeviceReady, false);
         tx.executeSql("select count(folioEncuesta) as totalhombres from encuestas where sexo = 'H';", [], function(tx, res) {
 
 
-          var $totalhombres = parseInt(res.rows.item(0).totalhombres);
-            alert ($totalhombres);
+          var $totalhombres = res.rows.item(0).totalhombres;
+
         });
       });	 
-//
-$('#totalHombres').html("hola");
+
+$('#totalHombres').html($totalhombres);
 
 	 
 	$(':mobile-pagecontainer').pagecontainer('change', '#pagestadistica'); 
