@@ -13,12 +13,12 @@ var db;
 
 
             function gotFS(fileSystem) {
-alert ("here");
+
 				 var fecha = new Date();
 
  
 $nombre = fecha.getDate() + "-" + (fecha.getMonth() +1) + "-" + fecha.getFullYear() + "-" + fecha.getHours() + "-" + fecha.getMinutes() + "-" + fecha.getSeconds();
-				alert ($nombre);
+
    fileSystem.root.getDirectory("Bullying", {create: true}, gotDir);
 }
 
@@ -39,7 +39,7 @@ function gotDir(dirEntry) {
                 };
 
                 writer.write($contenido);
-				alert ("Archivo Guardado");
+//				alert ("Archivo Guardado");
                 writer.abort();
 
             }
@@ -50,16 +50,15 @@ function gotDir(dirEntry) {
 function Guardar()
 {
 	$contenido = "Folio Encuesta, Sexo, Edad, Conoce, Hace, Bulleado, Denunciado" + "\n";
-alert ($contenido);
+
 	db.transaction(function(tx) {
         tx.executeSql("select * from encuestas;", [], function(tx, res) {
 alert ("cuantas: " +	res.rows.length);
     for (i = 0; i < res.rows.length; i++) { 
-//alert("folio: " +	res.rows.item(i).folioEncuesta + res.rows.item(i).sexo + res.rows.item(i).edad + res.rows.item(i).conoce + res.rows.item(i).hace + res.rows.item(i).bulleado + res.rows.item(i).denunciado);
 	$contenido = $contenido + res.rows.item(i).folioEncuesta + "," + res.rows.item(i).sexo + "," + res.rows.item(i).edad + "," +res.rows.item(i).conoce + "," + res.rows.item(i).hace + "," + res.rows.item(i).bulleado + "," +res.rows.item(i).denunciado  +"\n"; 
-alert ($contenido);
+
     }  
-alert ("fuera");
+
         });
       });
 		
@@ -107,12 +106,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
 	 
 if ( parseInt($('#cuantas').html()) > 0)
  {
-	 alert('guardar');
 	Guardar(); 
  }
  else
   {
-	  alert ("no hay estadistica que guardar o mostrar");
+	//  alert ("no hay estadistica que guardar o mostrar");
   }
  });
 	$(".icono-grande").on("tap",function(){
@@ -260,9 +258,9 @@ $('#continuar').on('tap', function (){
   $(".R3n").removeClass('rojo');
   $(".R4n").removeClass('rojo');
   $(".edad").removeClass('edad-seleccionada');
-  if ($('#pregunta4').hasClass('oculta'))
+  if (!$('#pregunta4').hasClass('oculta'))
    {
-    $('#pregunta4').removeClass('oculta');
+    $('#pregunta4').addClass('oculta');
    }
   
 		       $('html, body').animate({
