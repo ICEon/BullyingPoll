@@ -19,7 +19,7 @@ var db;
  
 $nombre = fecha.getDate() + "-" + (fecha.getMonth() +1) + "-" + fecha.getFullYear() + "-" + fecha.getHours() + "-" + fecha.getMinutes() + "-" + fecha.getSeconds();
 
-   fileSystem.root.getDirectory("Bullying", {create: true}, gotDir);
+   fileSystem.root.getDirectory("DAW", {create: true}, gotDir);
 }
 
 function gotDir(dirEntry) {
@@ -52,7 +52,7 @@ function gotDir(dirEntry) {
             }
 function Guardar()
 {
-	$contenido = "Folio Encuesta, Sexo, Edad, Conoce, Hace, Bulleado, Denunciado" + "\n";
+	$contenido = "Folio Encuesta, Sexo, Grupo, Computadora, Dispositivo, Internet, Correo" + "\n";
 
 	db.transaction(function(tx) {
         tx.executeSql("select * from encuestas;", [], function(tx, res) {
